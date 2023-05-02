@@ -24,6 +24,12 @@ export default function UserNavigationPopup({ onLogout }) {
         ▼
       </button>
 
+      <button className="burger-menu-button" onClick={handleUserButtonClick}>
+        <span className="burger-menu-button__line burger-menu-button__line_number_01"></span>
+        <span className="burger-menu-button__line burger-menu-button__line_number_02"></span>
+        <span className="burger-menu-button__line burger-menu-button__line_number_03"></span>
+      </button>
+
       <nav
         className={`user-popup ${isUserPopupActive ? "user-popup_active" : ""}`}
       >
@@ -37,18 +43,15 @@ export default function UserNavigationPopup({ onLogout }) {
             className="user-popup__close-button-image"
           />
         </button>
-        <div className="user-popup__info-block">
+
+        <div className="user-popup__navigation-block">
           <Link href="/my-profile" className="user-popup__link">
             Мой профиль
           </Link>
           <Link href="/my-events" className="user-popup__link">
             Мои События
           </Link>
-        </div>
-
-        <div className="user-popup__divider"></div>
-
-        <div className="user-popup__navigation-block">
+          <div className="user-popup__divider"></div>
           <Link href="/" className="user-popup__link">
             Главная
           </Link>
@@ -61,9 +64,8 @@ export default function UserNavigationPopup({ onLogout }) {
           <Link href="/support" className="user-popup__link">
             Поддержка
           </Link>
+          <div className="user-popup__divider"></div>
         </div>
-
-        <div className="user-popup__divider"></div>
 
         <button
           className="user-popup__exit-button"
@@ -72,6 +74,10 @@ export default function UserNavigationPopup({ onLogout }) {
           Выйти из аккаунта
         </button>
       </nav>
+
+      <div
+        className={`background ${isUserPopupActive && "background_active"}`}
+      ></div>
     </>
   );
 }

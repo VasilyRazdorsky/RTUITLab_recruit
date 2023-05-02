@@ -1,4 +1,5 @@
 .page {
+    box-sizing: border-box;
     max-width: 1440px;
     min-width: 320px;
     margin: 0 auto;
@@ -6,4 +7,16 @@
     font-family: 'Inter', Arial, Helvetica, sans-serif;
     background-color: #0A0A0A;
     color: #FFFAFA;
+}
+
+@media screen and (max-width: 1200px) {
+    .page {
+        padding: 20px 45px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .page {
+        padding: 10px 30px;
+    }
 }
