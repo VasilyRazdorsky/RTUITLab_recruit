@@ -1,6 +1,5 @@
-import Header from "@/components/Header";
-const AboutUs = ({ isLoggedIn }) => {
-  return <Header isLoggedIn={isLoggedIn} />;
+const AboutUs = () => {
+  return <div>AboutUs</div>;
 };
 
 export default AboutUs;

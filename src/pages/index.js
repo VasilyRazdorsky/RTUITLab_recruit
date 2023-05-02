@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home({ isLoggedIn, onLogout }) {
+export default function Home() {
   return (
     <>
       <Head>
@@ -13,7 +13,6 @@ export default function Home({ isLoggedIn, onLogout }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header isLoggedIn={isLoggedIn} onLogout={onLogout} />
       <main className={``}>
         <h1>Main</h1>
       </main>
