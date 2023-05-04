@@ -1,8 +1,6 @@
 import Head from "next/head";
-import { Inter } from "next/font/google";
 import Poster from "@/components/Poster";
-
-const inter = Inter({ subsets: ["latin"] });
+import TopEvents from "@/components/TopEvents";
 
 export default function Home() {
   return (
@@ -15,6 +13,7 @@ export default function Home() {
       </Head>
       <main className={``}>
         <Poster />
+        <TopEvents />
       </main>
     </>
   );

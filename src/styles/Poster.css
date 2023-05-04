@@ -30,6 +30,7 @@
 }
 
 .poster__subtitle-list {
+    padding: 0;
     margin-top: 30px;
     list-style: none;
     display: flex;
@@ -75,7 +76,7 @@
 
 @media screen and (max-width: 540px) {
     .poster {
-        padding: 170px 30px;
+        padding: 150px 30px;
     }
 
     .poster__subtitle-list {

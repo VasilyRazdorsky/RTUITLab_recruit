@@ -1,0 +1,29 @@
+.top-events {
+    padding: 70px;
+    text-align: center;
+}
+
+.top-events__title {
+    margin: 0;
+    margin-bottom: 40px;
+    font-weight: 900;
+    font-size: 34px;
+    line-height: 36px;
+}
+
+@media screen and (max-width: 1000px) {
+    .top-events {
+        padding: 50px 40px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .top-events {
+        padding: 50px 20px;
+    }
+
+    .top-events__title {
+        font-size: 27px;
+        line-height: 39px;
+    }
+}
