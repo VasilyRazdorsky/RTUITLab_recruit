@@ -2,4 +2,5 @@
 @import url("@/vendor/fonts/fonts.css");
 @import url("@/styles/globals.css");
 @import url('@/styles/Header.css');
-@import url("@/styles/UserNavigationPopup.css")
+@import url("@/styles/UserNavigationPopup.css");
+@import url("@/styles/Poster.css");

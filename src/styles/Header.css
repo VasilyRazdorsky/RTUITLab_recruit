@@ -1,4 +1,5 @@
 .header {
+    padding: 20px 70px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -95,11 +96,21 @@
 }
 
 @media screen and (max-width: 1000px) {
+    .header {
+        padding: 20px 45px;
+    }
+
     .header__page-navigation {
         display: none;
     }
 
     .header__user-name {
         display: none;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .header {
+        padding: 15px 30px;
     }
 }

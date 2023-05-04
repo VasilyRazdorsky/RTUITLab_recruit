@@ -5,11 +5,14 @@ import Layout from "@/components/Layout";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
+
   const [isLoggedIn, setIsLoggedIn] = useState(true);
+
   function handleLogout() {
     router.push("/");
     setIsLoggedIn(false);
   }
+
   return (
     <Layout isLoggedIn={isLoggedIn} onLogout={handleLogout}>
       <Component
