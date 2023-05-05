@@ -6,7 +6,7 @@ const Header = ({isLoggedIn, onLogout}) => {
     const router = useRouter();
     
     return (
-        <header className="header">
+        <header className="header" id="mailing-list">
             <p className="header__logo">МосСобытия</p>
 
             <nav className="header__page-navigation">

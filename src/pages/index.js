@@ -1,6 +1,8 @@
 import Head from "next/head";
 import Poster from "@/components/Poster";
 import TopEvents from "@/components/TopEvents";
+import MainInfo from "@/components/MainInfo";
+import HowToUse from "@/components/HowToUse";
 
 export default function Home() {
   return (
@@ -14,6 +16,8 @@ export default function Home() {
       <main className={``}>
         <Poster />
         <TopEvents />
+        <MainInfo />
+        <HowToUse />
       </main>
     </>
   );
