@@ -13,8 +13,17 @@
     100% {color: #0A0A0A}
 }
 
+@keyframes bounce {
+    0%   { bottom: 20px; }
+    30%  { bottom: 20px; }
+    35%  { bottom: 40px; }
+    40% { bottom: 20px; }
+    100% { bottom: 20px; }
+}
+
 .poster {
-    padding: 150px 0;
+    position: relative;
+    padding: 170px 0;
     background: linear-gradient(132deg, #FFFAFA, #0A0A0A);
     background-size: 400% 400%;
     animation: BackgroundGradient 30s ease infinite, TextColor 30s ease-in infinite;
@@ -54,6 +63,17 @@
     line-height: 15px;
 }
 
+.poster__arrow {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: 30px;
+    height: 30px;
+    animation:  bounce 6s ease infinite;
+}
+
+
+
 @media screen and (max-width: 1000px) {
     .poster {
         padding: 150px 30px;
@@ -72,11 +92,18 @@
         font-size: 21px;
         line-height: 22px;
     }
+
+    .poster__arrow {
+        width: 25px;
+        height: 25px;
+        right: 20px;
+    }
 }
 
 @media screen and (max-width: 540px) {
+
     .poster {
-        padding: 150px 30px;
+        padding: 100px 30px;
     }
 
     .poster__subtitle-list {
@@ -85,15 +112,21 @@
     }
 
     .poster__subtitle {
-        margin-top: 3px;
+        margin-top: 5px;
         margin-right: 0;
-        font-size: 25px;
-        line-height: 27px;
+        font-size: 22px;
+        line-height: 24px;
     }
 
     .poster__info-text {
         margin-top: 25px;
         font-size: 15px;
         line-height: 17px;
+    }
+
+    .poster__arrow {
+        width: 20px;
+        height: 20px;
+        right: 20px;
     }
 }
