@@ -3,6 +3,7 @@ import Poster from "@/components/Poster";
 import TopEvents from "@/components/TopEvents";
 import MainInfo from "@/components/MainInfo";
 import HowToUse from "@/components/HowToUse";
+import Subscription from "@/components/Subscription";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <TopEvents />
         <MainInfo />
         <HowToUse />
+        <Subscription />
       </main>
     </>
   );
