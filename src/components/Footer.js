@@ -6,7 +6,7 @@ export default function Footer() {
 
   return (
     <section className="footer">
-      <p className="footer__year">© {date.getFullYear()}</p>
+      <p className="footer__year">©МосСобытия {date.getFullYear()}</p>
       <Link href="/about-us" className="footer__link">
         О нас
       </Link>

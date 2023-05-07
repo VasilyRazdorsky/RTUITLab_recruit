@@ -1,0 +1,82 @@
+.about-us {
+    padding: 70px 100px;
+    background-color: #FFFAFA;
+    color: #0A0A0A;
+}
+
+.about-us__title {
+    margin: 0;
+    text-align: center;
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 42px;
+}
+
+.about-us__info {
+    max-width: 60%;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 40px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.about-us__communication-block {
+    margin-top: 70px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.about-us__communication-title {
+    margin: 0;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 30px;
+    line-height: 32px;
+}
+
+.about-us__contacts-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.about-us__contact {
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 20px;
+    line-height: 22px;
+}
+
+.about-us__socials-list {
+    padding: 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.about-us__social-link {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    width: fit-content;
+    padding: 5px;
+    margin-right: 15px;
+    transition: all .2s ease-in;
+}
+
+.about-us__social-link:last-of-type {
+    margin-right: 0;
+}
+
+.about-us__social-link:hover {
+    transform: scale(1.05);
+}
+
+.about-us__social-img {
+    display: block;
+    width: 50px;
+    height: 50px;
+}
