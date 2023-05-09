@@ -45,23 +45,47 @@ export default function UserNavigationPopup({ onLogout }) {
         </button>
 
         <div className="user-popup__navigation-block">
-          <Link href="/my-profile" className="user-popup__link">
+          <Link
+            href="/my-profile"
+            className="user-popup__link"
+            onClick={handleClosePopupButton}
+          >
             Мой профиль
           </Link>
-          <Link href="/my-events" className="user-popup__link">
+          <Link
+            href="/my-events"
+            className="user-popup__link"
+            onClick={handleClosePopupButton}
+          >
             Мои События
           </Link>
           <div className="user-popup__divider"></div>
-          <Link href="/" className="user-popup__link">
+          <Link
+            href="/"
+            className="user-popup__link"
+            onClick={handleClosePopupButton}
+          >
             Главная
           </Link>
-          <Link href="/events" className="user-popup__link">
+          <Link
+            href="/events"
+            className="user-popup__link"
+            onClick={handleClosePopupButton}
+          >
             События
           </Link>
-          <Link href="/about-us" className="user-popup__link">
+          <Link
+            href="/about-us"
+            className="user-popup__link"
+            onClick={handleClosePopupButton}
+          >
             О нас
           </Link>
-          <Link href="/support" className="user-popup__link">
+          <Link
+            href="/support"
+            className="user-popup__link"
+            onClick={handleClosePopupButton}
+          >
             Поддержка
           </Link>
           <div className="user-popup__divider"></div>
