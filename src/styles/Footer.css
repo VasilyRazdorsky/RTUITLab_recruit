@@ -39,10 +39,14 @@
 @media screen and (max-width: 540px) {
     .footer {
         padding: 30px 15px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     .footer__link {
         font-size: 15px;
         line-height: 17px;
+        margin-bottom: 10px;
     }
 
     .link-up {
@@ -53,5 +57,6 @@
     .footer__year {
         font-size: 15px;
         line-height: 17px;
+        margin-bottom: 10px;
     }
 }
