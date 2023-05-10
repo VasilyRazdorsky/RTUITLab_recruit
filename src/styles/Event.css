@@ -1,6 +1,246 @@
+@keyframes smoothHeightChange {
+    0% {
+        height: 0;
+    }
+    50% {
+        height: 150px;
+    }
+
+    100% {
+        height: 300px;
+    }
+}
+
 .event {
-    padding: 30px;
-    background-color: darkgray;
-    backdrop-filter: blur(5px);
+    width: 50%;
+    margin: 0 auto;
+    padding: 30px 10px;
+    border: 2px solid #2E2A29;
     border-radius: 10px;
+    margin-bottom: 40px;
+}
+
+.event:last-of-type {
+    margin-bottom: 0;
+}
+
+.event__head {
+    margin: 0 auto;
+    max-width: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.event__title {
+    margin: 0;
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 22px;
+    
+}
+
+.event__date {
+    margin: 0;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+.event__poster {
+    width: 75%;
+    height: 400px;
+    margin: 0 auto;
+    margin-top: 20px;
+    background-color: beige;
+}
+
+.event__info-block {
+    max-width: 80%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.event__likes-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.event__likes-count {
+    margin: 0;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 17px;
+}
+
+.event__like-button {
+    width: 32px;
+    height: 32px;
+    padding: 5px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all .3s ease-in;
+}
+
+.event__like-icon {
+    width: 100%;
+    height: 100%;
+    color: #FFFAFA;
+    transition: color .3s linear;
+}
+
+.event__like-button:hover .event__like-icon{
+    color: #FF2400;
+}
+
+.event__info-text {
+    margin: 0;
+    margin-top: 15px;
+    max-width: 100%;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 17px;
+    color: #F3ECEC;
+}
+
+.event__text-title {
+    margin-right: 10px;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 19px;
+    color: #FFFAFA;
+}
+
+.event__adress {
+    max-width: 80%;
+    margin: 0 auto;
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+@media screen and (max-width: 1140px) {
+    .event {
+        width: 70%;
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+    .event__title {
+        font-size: 18px;
+        line-height: 20px;
+    }
+
+    .event__date {
+        font-size: 14px;
+        line-height: 16px;
+    }
+
+    .event__info-text {
+        font-size: 14px;
+        line-height: 16px;
+    }
+    
+    .event__text-title {
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 17px;
+    }
+
+    .event__likes-count {
+        font-size: 14px;
+        line-height: 16px;
+    }
+
+    .event__adress {
+        font-size: 14px;
+        line-height: 16px;
+    }
+}
+
+@media screen and (max-width: 870px) {
+    .event__poster {
+        height: 350px;
+    }
+}
+
+@media screen and (max-width: 740px) {
+    .event {
+        width: 80%;
+    }
+
+    .event__poster {
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .event {
+        width: 90%;
+        padding: 20px 5px;
+    }
+
+    .event__title {
+        
+        font-size: 13px;
+        line-height: 15px;
+        
+    }
+
+    .event__date {
+        font-size: 12px;
+        line-height: 14px;
+    }
+
+    .event__poster {
+        margin-top: 10px;
+    }
+
+    .event__info-block {
+        margin-top: 10px;
+    }
+
+    .event__info-text {
+        margin-top: 7px;
+        font-size: 13px;
+        line-height: 15px;
+    }
+
+    .event__text-title {
+        font-size: 14px;
+        line-height: 16px;
+    }
+
+    .event__likes-count {
+        font-size: 13px;
+        line-height: 15px;
+    }
+
+    .event__adress {
+        font-size: 13px;
+        line-height: 15px;
+    }
+}
+
+@media screen and (max-width: 470px) {
+    .event__poster {
+        height: 250px;
+    }
+
+    .event__title {
+        max-width: 120px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .event__poster {
+        height: 200px;
+    }
 }
