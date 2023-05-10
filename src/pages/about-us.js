@@ -2,7 +2,7 @@ import Image from "next/image";
 import GitHubPath from "@/images/github.svg";
 import VKPath from "@/images/vk.svg";
 import TelegramPath from "@/images/telegram.svg";
-import Map from "@/components/Map";
+import Map from "@/components/MyMap";
 
 const AboutUs = () => {
   return (
@@ -78,10 +78,7 @@ const AboutUs = () => {
       <p className="about-us__adress-text">
         📍 1-й Красногвардейский проезд, д. 15 башня &quot;Меркурий&quot;
       </p>
-      <Map
-        link="https://yandex.ru/map-widget/v1/?ll=37.542765%2C55.749669&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgo0NTMwMTM1MjgxErcC0KDQvtGB0YHQuNGPLCDQnNC-0YHQutCy0LAsINCm0LXQvdGC0YDQsNC70YzQvdGL0Lkg0LDQtNC80LjQvdC40YHRgtGA0LDRgtC40LLQvdGL0Lkg0L7QutGA0YPQsywg0J_RgNC10YHQvdC10L3RgdC60LjQuSDRgNCw0LnQvtC9LCDQnNC-0YHQutC-0LLRgdC60LjQuSDQvNC10LbQtNGD0L3QsNGA0L7QtNC90YvQuSDQtNC10LvQvtCy0L7QuSDRhtC10L3RgtGAINCc0L7RgdC60LLQsC3QodC40YLQuCwg0LzQvdC-0LPQvtGE0YPQvdC60YbQuNC-0L3QsNC70YzQvdGL0Lkg0LrQvtC80L_Qu9C10LrRgSDQkdCw0YjQvdGPINCc0LXRgNC60YPRgNC40LkiCg1nKBZCFYYAX0I%2C&z=15.55"
-        className="map_place_about-us"
-      />
+      <Map coordinates={[55.75051, 37.539455]} className="map_place_about-us" />
     </section>
   );
 };

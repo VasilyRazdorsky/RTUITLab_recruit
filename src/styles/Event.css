@@ -1,0 +1,6 @@
+.event {
+    padding: 30px;
+    background-color: darkgray;
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+}
