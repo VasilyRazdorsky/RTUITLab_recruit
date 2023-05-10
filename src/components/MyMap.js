@@ -15,7 +15,7 @@ export default function MyMap({ coordinates, className, placemarkText }) {
         <Placemark
           defaultGeometry={coordinates}
           properties={{
-            iconCaption: { placemarkText },
+            iconCaption: placemarkText,
           }}
         />
       </Map>

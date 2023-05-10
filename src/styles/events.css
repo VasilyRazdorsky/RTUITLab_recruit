@@ -1,0 +1,12 @@
+.events {
+    padding: 0 70px 90px 70px;
+}
+
+.events__title {
+    margin: 0;
+    margin-top: 20px;
+    font-weight: 900;
+    font-size: 34px;
+    line-height: 36px;
+    text-align: center;
+}

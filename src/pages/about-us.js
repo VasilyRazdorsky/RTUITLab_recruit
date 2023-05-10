@@ -2,7 +2,7 @@ import Image from "next/image";
 import GitHubPath from "@/images/github.svg";
 import VKPath from "@/images/vk.svg";
 import TelegramPath from "@/images/telegram.svg";
-import Map from "@/components/MyMap";
+import MyMap from "@/components/MyMap";
 
 const AboutUs = () => {
   return (
@@ -78,10 +78,10 @@ const AboutUs = () => {
       <p className="about-us__adress-text">
         📍 1-й Красногвардейский проезд, д. 15 башня &quot;Меркурий&quot;
       </p>
-      <Map
+      <MyMap
         coordinates={[55.75051, 37.539455]}
         className="map_place_about-us"
-        placemarkText="Офис МосСобытия"
+        placemarkText={"Офис МосСобытия"}
       />
     </section>
   );
