@@ -1,6 +1,6 @@
 import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
 
-export default function MyMap({ coordinates, className }) {
+export default function MyMap({ coordinates, className, placemarkText }) {
   return (
     <YMaps>
       <Map
@@ -15,7 +15,7 @@ export default function MyMap({ coordinates, className }) {
         <Placemark
           defaultGeometry={coordinates}
           properties={{
-            iconCaption: "Офис МосСобытия",
+            iconCaption: { placemarkText },
           }}
         />
       </Map>
