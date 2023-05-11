@@ -3,12 +3,14 @@ import { useState } from "react";
 
 export default function Subscription() {
   const [isSubscribed, setIsSubscribed] = useState(false);
-  const { handleInputChange, isFormValid } = useFormValidation();
+  const { handleInputChange, isFormValid } = useFormValidation({
+    passwordInput: false,
+    nameInput: false,
+  });
 
   function handleSubmit(e) {
     e.preventDefault();
     setIsSubscribed(true);
-    console.log("Подписались");
   }
 
   return (

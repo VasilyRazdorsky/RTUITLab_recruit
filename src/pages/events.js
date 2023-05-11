@@ -2,7 +2,7 @@ import TopEvents from "@/components/TopEvents";
 import Event from "@/components/Event";
 import MyMap from "@/components/MyMap";
 import { Placemark } from "@pbe/react-yandex-maps";
-import { scroller, Element } from "react-scroll";
+import { scroller } from "react-scroll";
 
 const events = [
   {

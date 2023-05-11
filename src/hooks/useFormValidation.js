@@ -1,7 +1,11 @@
 import { useCallback, useEffect, useState } from "react";
 
-export default function useFormValidation() {
-  const [values, setValues] = useState({});
+export default function useFormValidation({ passwordInput, nameInput }) {
+  const [values, setValues] = useState({
+    email: "",
+    password: "",
+    name: "",
+  });
   const [errors, setErrors] = useState({});
   const [isFormValid, setIsFormValid] = useState(false);
   const [target, setTarget] = useState("");
@@ -37,7 +41,15 @@ export default function useFormValidation() {
 
   useEffect(() => {
     if (values.email && validateEmail(values.email) && target.checkValidity()) {
-      setIsFormValid(true);
+      let finalBool = true;
+      if (passwordInput && values.password.length < 4) {
+        finalBool = false;
+      }
+
+      if (nameInput && values.name.length < 2) {
+        finalBool = false;
+      }
+      setIsFormValid(finalBool);
     } else {
       setIsFormValid(false);
     }
