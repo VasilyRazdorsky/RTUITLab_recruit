@@ -3,6 +3,7 @@ import GitHubPath from "@/images/github.svg";
 import VKPath from "@/images/vk.svg";
 import TelegramPath from "@/images/telegram.svg";
 import MyMap from "@/components/MyMap";
+import { Placemark } from "@pbe/react-yandex-maps";
 
 const AboutUs = () => {
   return (
@@ -80,8 +81,16 @@ const AboutUs = () => {
       </p>
       <MyMap
         coordinates={[55.75051, 37.539455]}
+        zoom={15}
         className="map_place_about-us"
-        placemarkText={"Офис МосСобытия"}
+        placemarks={
+          <Placemark
+            defaultGeometry={[55.75051, 37.539455]}
+            properties={{
+              iconCaption: "Офис МосСобытия",
+            }}
+          />
+        }
       />
     </section>
   );

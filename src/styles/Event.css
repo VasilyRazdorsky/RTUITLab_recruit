@@ -11,18 +11,23 @@
     }
 }
 
+.element {
+    margin-bottom: 40px;
+}
+
+.element:last-of-type {
+    margin-bottom: 0;
+}
+
 .event {
     width: 50%;
     margin: 0 auto;
     padding: 30px 10px;
     border: 2px solid #2E2A29;
     border-radius: 10px;
-    margin-bottom: 40px;
 }
 
-.event:last-of-type {
-    margin-bottom: 0;
-}
+
 
 .event__head {
     margin: 0 auto;

@@ -1,23 +1,18 @@
-import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
+import { YMaps, Map } from "@pbe/react-yandex-maps";
 
-export default function MyMap({ coordinates, className, placemarkText }) {
+export default function MyMap({ coordinates, zoom, className, placemarks }) {
   return (
     <YMaps>
       <Map
         defaultState={{
           center: coordinates,
-          zoom: 15,
+          zoom: zoom,
           controls: ["zoomControl"],
         }}
         modules={["control.ZoomControl"]}
         className={className}
       >
-        <Placemark
-          defaultGeometry={coordinates}
-          properties={{
-            iconCaption: placemarkText,
-          }}
-        />
+        {placemarks}
       </Map>
     </YMaps>
   );

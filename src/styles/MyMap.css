@@ -7,11 +7,25 @@
     margin-top: 30px;
 }
 
+.map_place_events {
+    display: block;
+    width: 85%;
+    height: 600px;
+    border: none;
+    margin: 0 auto;
+    margin-top: 60px;
+}
+
 @media screen and (max-width: 740px) {
     .map_place_about-us {
         margin-top: 40px;
         width: 80%;
         height: 350px;
+    }
+
+    .map_place_events {
+        height: 400px;
+        margin-top: 40px;
     }
 }
 
@@ -20,5 +34,10 @@
         margin-top: 40px;
         width: 80%;
         height: 200px;
+    }
+
+    .map_place_events {
+        height: 300px;
+        margin-top: 30px;
     }
 }
