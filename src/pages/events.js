@@ -3,6 +3,7 @@ import Event from "@/components/Event";
 import MyMap from "@/components/MyMap";
 import { Placemark } from "@pbe/react-yandex-maps";
 import { scroller } from "react-scroll";
+import isAuth from "@/components/isAuth";
 
 const events = [
   {
@@ -17,7 +18,7 @@ const events = [
   },
 ];
 
-export default function Events() {
+function Events() {
   return (
     <>
       <TopEvents />
@@ -71,3 +72,5 @@ export default function Events() {
     </>
   );
 }
+
+export default isAuth(Events);
