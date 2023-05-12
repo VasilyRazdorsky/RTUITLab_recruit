@@ -59,7 +59,7 @@ export default function Register() {
 
       <p className="login__redirect-text">
         Уже зарегистрированы?{" "}
-        <Link href="/sign-up" className="login__redirect-link">
+        <Link href="/sign-in" className="login__redirect-link">
           Войти
         </Link>
       </p>

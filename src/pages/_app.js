@@ -3,10 +3,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import Layout from "@/components/Layout";
 
-export default function App({
-  Component,
-  pageProps: { session, ...pageProps },
-}) {
+export default function App({ Component, pageProps }) {
   const router = useRouter();
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
