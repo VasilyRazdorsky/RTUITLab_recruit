@@ -1,9 +1,13 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import UserNavigationPopup from "./UserNavigationPopup";
+import { CurrentUserContext } from "@/contexts/CurrentUserContext";
+import { useContext, useState } from "react";
 
 const Header = ({isLoggedIn, onLogout}) => {
     const router = useRouter();
+    const currentUser = useContext(CurrentUserContext);
+    console.log(currentUser);
     
     return (
         <header className="header" id="up">
@@ -23,7 +27,7 @@ const Header = ({isLoggedIn, onLogout}) => {
                 <button className="header__button header__button_action_login" onClick={() => router.push("/sign-in")}>Войти</button>
             </div> : 
             <div className="header__user-navigation">
-                <p className="header__user-name">Василий</p>
+                <p className="header__user-name">{currentUser.firstName}</p>
                 <UserNavigationPopup onLogout={onLogout}/>
             </div>}
         </header>

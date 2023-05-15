@@ -1,16 +1,23 @@
 import Link from "next/link";
 import useFormValidation from "@/hooks/useFormValidation";
-export default function Login() {
-  const { handleInputChange, isFormValid } = useFormValidation({
+import InfoToolTip from "@/components/InfoToolTip";
+
+export default function Login({ onLogin }) {
+  const { handleInputChange, isFormValid, values } = useFormValidation({
     passwordInput: true,
     nameInput: false,
   });
+
+  const handleSubmitClick = (e) => {
+    e.preventDefault();
+    onLogin(values.email, values.password);
+  };
 
   return (
     <section className="login">
       <h1 className="login__title">Рады видеть!</h1>
 
-      <form className="login__form">
+      <form className="login__form" onSubmit={handleSubmitClick}>
         <label htmlFor="email" className="login__form-label">
           Почта:
         </label>
@@ -20,6 +27,7 @@ export default function Login() {
           id="email"
           className="login__input"
           onChange={handleInputChange}
+          defaultValue=""
         />
 
         <label htmlFor="password" className="login__form-label">
@@ -34,6 +42,7 @@ export default function Login() {
           minLength="4"
           maxLength="40"
           onChange={handleInputChange}
+          defaultValue=""
         />
 
         <button
@@ -53,6 +62,8 @@ export default function Login() {
           Регистрация
         </Link>
       </p>
+
+      <InfoToolTip />
     </section>
   );
 }

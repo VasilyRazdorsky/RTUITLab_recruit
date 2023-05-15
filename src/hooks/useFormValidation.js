@@ -42,7 +42,7 @@ export default function useFormValidation({ passwordInput, nameInput }) {
   useEffect(() => {
     if (values.email && validateEmail(values.email) && target.checkValidity()) {
       let finalBool = true;
-      if (passwordInput && values.password.length < 4) {
+      if (passwordInput && values.password.length < 3) {
         finalBool = false;
       }
 
