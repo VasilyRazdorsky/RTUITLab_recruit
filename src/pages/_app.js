@@ -1,12 +1,14 @@
 import "@/styles/index.css";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Layout from "@/components/Layout";
+import { getAllEvents } from "@/utils/api";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [events, setEvents] = useState([]);
 
   function handleLogout() {
     router.push("/");
@@ -19,6 +21,7 @@ export default function App({ Component, pageProps }) {
         {...pageProps}
         isLoggedIn={isLoggedIn}
         onLogout={handleLogout}
+        currentEvents={events}
       />
     </Layout>
   );

@@ -20,7 +20,18 @@ export default function Event({
           <p className="event__date">{date}</p>
         </div>
 
-        <div className="event__poster"></div>
+        <div className="event__poster">
+          <Image
+            loader={() => {
+              return posterUrl;
+            }}
+            alt="Постер события"
+            src={posterUrl}
+            width={375}
+            height={375}
+            className="event__poster-img"
+          />
+        </div>
 
         <div className="event__info-block">
           <div className="event__likes-block">

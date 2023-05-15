@@ -5,6 +5,18 @@ import { Placemark } from "@pbe/react-yandex-maps";
 import { scroller } from "react-scroll";
 
 import Auth from "@/components/isAuth";
+import { useState } from "react";
+import { getAllEvents } from "@/utils/api";
+
+export const getServerSideProps = async () => {
+  const res = await getAllEvents();
+
+  return {
+    props: {
+      eventsList: res,
+    },
+  };
+};
 
 const events = [
   {
@@ -19,7 +31,7 @@ const events = [
   },
 ];
 
-export default function Events({ isLoggedIn }) {
+export default function Events({ isLoggedIn, eventsList }) {
   return (
     <>
       <Auth isLoggedIn={isLoggedIn}>
@@ -30,7 +42,7 @@ export default function Events({ isLoggedIn }) {
             coordinates={[55.75399399999374, 37.62209300000001]}
             zoom={11}
             className="map_place_events"
-            placemarks={events.map((event) => (
+            placemarks={eventsList.map((event) => (
               <Placemark
                 key={event.id}
                 defaultGeometry={event.coordinates}
@@ -38,8 +50,7 @@ export default function Events({ isLoggedIn }) {
                   iconCaption: event.title,
                 }}
                 onClick={() => {
-                  console.log(event.id);
-                  scroller.scrollTo(event.id, {
+                  scroller.scrollTo(event.id.toString(), {
                     duration: 1500,
                     smooth: true,
                   });
@@ -50,25 +61,20 @@ export default function Events({ isLoggedIn }) {
           <h2 className="events__title">Новые события в Москве 🌱</h2>
 
           <div className="events__container">
-            <Event
-              title="Выставка Code 369"
-              date="24.05.2023"
-              posterUrl="abc"
-              likeCount="37"
-              description="Экспозиция выстроена в своей особой логике: следуя от одной инсталляции к другой, посетитель проходит путь от высшей точки нематериального мира «Абсолют» до точки «Земля». Арт-объекты наводят на размышления и неспешный внутренний диалог. Посетителей сопровождает аудиогид, который поможет глубже погрузиться в смыслы экспонатов и собственные ощущения. Почувствовать умиротворение и поразмышлять помогают звук и свет, а главное — возможность тактильно взаимодействовать с арт-объектами: песком и водой. Кинестетиков ждёт особенно много впечатлений."
-              adress="4-й Сыромятнический пер., д 1/8, стр. 11."
-              elementName="123"
-            />
-            <Event
-              id="321"
-              title="Концерт в большом театре"
-              date="06.06.2023"
-              posterUrl="abc"
-              likeCount="19"
-              description="Historic theatre in Moscow, Russia, originally designed by architect Joseph Bové, which holds ballet and opera performances. Before the October Revolution it was a part of the Imperial Theatres of the Russian Empire along with Maly Theatre in Moscow and a few theatres in Saint Petersburg."
-              adress="Moscow, Teatralnaya Square, 1"
-              elementName="321"
-            />
+            {eventsList.map((event) => {
+              return (
+                <Event
+                  key={event.id}
+                  title={event.title}
+                  date={event.startDate.slice(0, 10)}
+                  posterUrl={event.posterUrl}
+                  likeCount={event.likes.length}
+                  description={event.description}
+                  adress={event.address}
+                  elementName={event.id.toString()}
+                />
+              );
+            })}
           </div>
         </section>
       </Auth>
