@@ -4,12 +4,20 @@ import { useEffect, useState } from "react";
 import Layout from "@/components/Layout";
 import { CurrentUserContext } from "@/contexts/CurrentUserContext";
 import { getCurrentUser } from "@/utils/api";
-import { login, logout } from "@/utils/auth";
+import { login, logout, register } from "@/utils/auth";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
+
+  function handleRegister(firstName, email, password) {
+    register(firstName, email, password)
+      .then(() => {
+        router.push("/sign-in");
+      })
+      .catch((err) => console.log(err));
+  }
 
   function handleLogout() {
     logout()
@@ -61,6 +69,7 @@ export default function App({ Component, pageProps }) {
           isLoggedIn={isLoggedIn}
           onLogin={handleLogin}
           onLogout={handleLogout}
+          onRegister={handleRegister}
         />
       </Layout>
     </CurrentUserContext.Provider>

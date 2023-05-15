@@ -18,11 +18,4 @@ function getAllEvents() {
     .catch((err) => console.log(err));
 }
 
-function addLike() {
-  return axios
-    .post(`${config.baseUrl}/Like/2`)
-    .then((res) => console.log(res))
-    .catch((err) => console.log(err));
-}
-
-export { getAllEvents, getCurrentUser, addLike };
+export { getAllEvents, getCurrentUser };

@@ -1,15 +1,20 @@
 import Link from "next/link";
 import useFormValidation from "@/hooks/useFormValidation";
-export default function Register() {
-  const { handleInputChange, isFormValid } = useFormValidation({
+export default function Register({ onRegister }) {
+  const { handleInputChange, isFormValid, values } = useFormValidation({
     passwordInput: true,
     nameInput: true,
   });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onRegister(values.name, values.email, values.password);
+  };
   return (
     <section className="login">
       <h1 className="login__title">Добро пожаловать!</h1>
 
-      <form className="login__form">
+      <form className="login__form" onSubmit={handleSubmit}>
         <label htmlFor="name" className="login__form-label">
           Имя:
         </label>
@@ -19,6 +24,7 @@ export default function Register() {
           id="name"
           className="login__input"
           onChange={handleInputChange}
+          defaultValue=""
         />
 
         <label htmlFor="email" className="login__form-label">
@@ -30,6 +36,7 @@ export default function Register() {
           id="email"
           className="login__input"
           onChange={handleInputChange}
+          defaultValue=""
         />
 
         <label htmlFor="password" className="login__form-label">
@@ -44,6 +51,7 @@ export default function Register() {
           minLength="4"
           maxLength="40"
           onChange={handleInputChange}
+          defaultValue=""
         />
 
         <button

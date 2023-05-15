@@ -7,7 +7,6 @@ import { useContext, useState } from "react";
 const Header = ({isLoggedIn, onLogout}) => {
     const router = useRouter();
     const currentUser = useContext(CurrentUserContext);
-    console.log(currentUser);
     
     return (
         <header className="header" id="up">
