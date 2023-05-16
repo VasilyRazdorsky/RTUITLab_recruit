@@ -3,7 +3,11 @@ import useFormValidation from "@/hooks/useFormValidation";
 import InfoToolTip from "@/components/InfoToolTip";
 import Head from "next/head";
 
-export default function Login({ onLogin }) {
+export default function Login({
+  onLogin,
+  isInfoToolTipOpen,
+  onInfoToolTipClose,
+}) {
   const { handleInputChange, isFormValid, values } = useFormValidation({
     passwordInput: true,
     nameInput: false,
@@ -68,7 +72,10 @@ export default function Login({ onLogin }) {
           </Link>
         </p>
 
-        <InfoToolTip />
+        <InfoToolTip
+          isInfoToolTipOpen={isInfoToolTipOpen}
+          onInfoToolTipClose={onInfoToolTipClose}
+        />
       </section>
     </>
   );

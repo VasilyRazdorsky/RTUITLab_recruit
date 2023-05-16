@@ -1,7 +1,12 @@
 import Link from "next/link";
 import useFormValidation from "@/hooks/useFormValidation";
 import Head from "next/head";
-export default function Register({ onRegister }) {
+import InfoToolTip from "@/components/InfoToolTip";
+export default function Register({
+  onRegister,
+  isInfoToolTipOpen,
+  onInfoToolTipClose,
+}) {
   const { handleInputChange, isFormValid, values } = useFormValidation({
     passwordInput: true,
     nameInput: true,
@@ -76,6 +81,11 @@ export default function Register({ onRegister }) {
             Войти
           </Link>
         </p>
+
+        <InfoToolTip
+          isInfoToolTipOpen={isInfoToolTipOpen}
+          onInfoToolTipClose={onInfoToolTipClose}
+        />
       </section>
     </>
   );
