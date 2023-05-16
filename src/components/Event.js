@@ -17,11 +17,7 @@ export default function Event({
 }) {
   const currentUser = useContext(CurrentUserContext);
   const [likesCount, setLikesCount] = useState(0);
-  const [isLiked, setIsLiked] = useState(
-    currentUser.likedEvents.find((event) => {
-      return event.id === id;
-    })
-  );
+  const [isLiked, setIsLiked] = useState(false);
 
   useEffect(() => {
     getEvent(id)

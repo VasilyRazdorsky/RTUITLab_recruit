@@ -33,19 +33,21 @@ export default function MyEvents({ isLoggedIn }) {
         <div className="my-events__events-container">
           {events.length !== 0 ? (
             events.map((event) => {
-              return (
-                <Event
-                  key={event.id}
-                  id={event.id}
-                  title={event.title}
-                  date={event.startDate.slice(0, 10)}
-                  posterUrl={event.posterUrl}
-                  description={event.description}
-                  adress={event.address}
-                  elementName={event.id.toString()}
-                  onDislike={handleEventDislike}
-                />
-              );
+              if (event.status === "NotStarted") {
+                return (
+                  <Event
+                    key={event.id}
+                    id={event.id}
+                    title={event.title}
+                    date={event.startDate.slice(0, 10)}
+                    posterUrl={event.posterUrl}
+                    description={event.description}
+                    adress={event.address}
+                    elementName={event.id.toString()}
+                    onDislike={handleEventDislike}
+                  />
+                );
+              }
             })
           ) : (
             <p className="my-events__empty-text">
