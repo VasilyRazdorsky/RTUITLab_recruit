@@ -3,9 +3,7 @@ import Event from "@/components/Event";
 import MyMap from "@/components/MyMap";
 import { Placemark } from "@pbe/react-yandex-maps";
 import { scroller } from "react-scroll";
-
 import Auth from "@/components/isAuth";
-import { useState } from "react";
 import { getAllEvents } from "@/utils/api";
 
 export const getServerSideProps = async () => {
@@ -17,19 +15,6 @@ export const getServerSideProps = async () => {
     },
   };
 };
-
-const events = [
-  {
-    coordinates: [55.75565706897642, 37.66587450000001],
-    title: "Выставка Code 369",
-    id: "123",
-  },
-  {
-    coordinates: [55.76473183202939, 37.59783815766445],
-    title: "Концерт в большом театре",
-    id: "321",
-  },
-];
 
 export default function Events({ isLoggedIn, eventsList }) {
   return (
@@ -65,13 +50,14 @@ export default function Events({ isLoggedIn, eventsList }) {
               return (
                 <Event
                   key={event.id}
+                  id={event.id}
                   title={event.title}
                   date={event.startDate.slice(0, 10)}
                   posterUrl={event.posterUrl}
-                  likeCount={event.likes.length}
                   description={event.description}
                   adress={event.address}
                   elementName={event.id.toString()}
+                  onDislike={() => {}}
                 />
               );
             })}

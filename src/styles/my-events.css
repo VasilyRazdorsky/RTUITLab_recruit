@@ -1,5 +1,6 @@
 .my-events {
     padding: 70px;
+    height: 100%;
 }
 
 .my-events__title {
@@ -9,4 +10,32 @@
     font-weight: 900;
     font-size: 36px;
     line-height: 38px;
+}
+
+.my-events__empty-text {
+    max-width: 50%;
+    margin: 0 auto;
+    margin-bottom: 42vh;
+    text-align: center;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 26px;
+}
+
+@media screen and (max-width: 1000px) {
+
+    .my-events {
+        padding: 40px;
+    }
+
+    .my-events__empty-text {
+        max-width: 80%;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .my-events__empty-text {
+        font-size: 16px;
+    line-height: 18px;
+    }
 }

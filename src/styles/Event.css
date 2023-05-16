@@ -101,6 +101,15 @@
     transition: color .3s linear;
 }
 
+.event__like-icon_liked {
+    color:#FF2400;
+    transition: opacity .3s linear;
+}
+
+.event__like-icon_liked:hover {
+    opacity: .7;
+}
+
 .event__like-button:hover .event__like-icon{
     color: #FF2400;
 }
