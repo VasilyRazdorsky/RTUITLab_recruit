@@ -1,6 +1,15 @@
 import { YMaps, Map } from "@pbe/react-yandex-maps";
 
-export default function MyMap({ coordinates, zoom, className, placemarks }) {
+export default function MyMap({
+  coordinates,
+  zoom,
+  className,
+  placemarks,
+  onClick,
+}) {
+  function handleClick(e) {
+    console.log(e.get("coords"));
+  }
   return (
     <YMaps>
       <Map
@@ -11,6 +20,7 @@ export default function MyMap({ coordinates, zoom, className, placemarks }) {
         }}
         modules={["control.ZoomControl"]}
         className={className}
+        onClick={onClick}
       >
         {placemarks}
       </Map>

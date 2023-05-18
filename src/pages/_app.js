@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Layout from "@/components/Layout";
 import { CurrentUserContext } from "@/contexts/CurrentUserContext";
-import { getCurrentUser } from "@/utils/api";
+import { getCurrentUser, createEvent } from "@/utils/api";
 import { login, logout, register } from "@/utils/auth";
 
 export default function App({ Component, pageProps }) {
@@ -72,6 +72,18 @@ export default function App({ Component, pageProps }) {
       });
   }, []);
 
+  function handleCreateEvent(values) {
+    createEvent(values)
+      .then((res) => {
+        router.push("/events");
+        console.log(res);
+      })
+      .catch((err) => {
+        setIsInfoToolTipOpen(true);
+        console.log(err);
+      });
+  }
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <Layout isLoggedIn={isLoggedIn} onLogout={handleLogout}>
@@ -83,6 +95,7 @@ export default function App({ Component, pageProps }) {
           onRegister={handleRegister}
           isInfoToolTipOpen={isInfoToolTipOpen}
           onInfoToolTipClose={handleInfoToolTipClose}
+          onCreateEvent={handleCreateEvent}
         />
       </Layout>
     </CurrentUserContext.Provider>

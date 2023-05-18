@@ -31,4 +31,34 @@ function removeLike(eventId) {
     .then((res) => res.data);
 }
 
-export { getAllEvents, getEvent, getCurrentUser, addLike, removeLike };
+function createEvent(values) {
+  return axios
+    .post(
+      `${config.baseUrl}/CreateEvent`,
+      {
+        title: values.title,
+        description: values.description,
+        address: values.address,
+        startDate: values.startDate,
+        endDate: values.startDate,
+        coordinates: values.coordinates,
+        posterUrl: values.posterUrl,
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      }
+    )
+    .then((res) => res.data);
+}
+
+export {
+  getAllEvents,
+  getEvent,
+  getCurrentUser,
+  addLike,
+  removeLike,
+  createEvent,
+};

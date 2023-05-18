@@ -10,6 +10,7 @@ export default function Register({
   const { handleInputChange, isFormValid, values } = useFormValidation({
     passwordInput: true,
     nameInput: true,
+    createEventInput: false,
   });
 
   const handleSubmit = (e) => {

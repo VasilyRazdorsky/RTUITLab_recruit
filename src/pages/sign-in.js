@@ -11,6 +11,7 @@ export default function Login({
   const { handleInputChange, isFormValid, values } = useFormValidation({
     passwordInput: true,
     nameInput: false,
+    createEventInput: false,
   });
 
   const handleSubmitClick = (e) => {

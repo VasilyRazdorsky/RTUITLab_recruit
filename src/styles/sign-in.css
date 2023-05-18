@@ -23,6 +23,10 @@
     color: #FFFAFA;
 }
 
+.login__form-label_after-textarea {
+    margin-top: 15px;
+}
+
 .login__input {
     display: block;
     margin: 0 auto;
@@ -49,6 +53,12 @@
 
 .login__input:focus {
     border-color: #D0D0D0;
+}
+
+.login__input_textarea {
+    height: 200px;
+    resize: none;
+    margin-bottom: 15px;
 }
 
 .login__submit-button {
@@ -94,6 +104,14 @@
     opacity: .8;
 }
 
+.login__map-text {
+    margin: 0;
+    margin-top: 30px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 22px;
+}
+
 @media screen and (max-width: 1000px) {
     .login {
         padding: 120px 30px;
@@ -112,6 +130,11 @@
     .login__redirect-text  {
         font-size: 14px;
         line-height: 16px;
+    }
+
+    .login__map-text {
+        font-size: 18px;
+        line-height: 20px;
     }
 }
 
@@ -141,4 +164,8 @@
         line-height: 16px;
     }
 
+    .login__map-text {
+        font-size: 16px;
+        line-height: 18px;
+    }
 }

@@ -1,10 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import closeIconPath from "@/images/close-icon.svg";
+import { CurrentUserContext } from "@/contexts/CurrentUserContext";
+import { getCurrentUser } from "@/utils/api";
 
 export default function UserNavigationPopup({ onLogout }) {
   const [isUserPopupActive, setIsUserPopupActive] = useState(false);
+  const currentUser = useContext(CurrentUserContext);
+  const [roles, setRoles] = useState([]);
+
+  useEffect(() => {}, []);
 
   function handleUserButtonClick() {
     setIsUserPopupActive(true);
@@ -88,6 +94,17 @@ export default function UserNavigationPopup({ onLogout }) {
           >
             Поддержка
           </Link>
+          {currentUser?.roles && currentUser.roles.includes("admin") ? (
+            <Link
+              href="/create-event"
+              className="user-popup__link"
+              onClick={handleClosePopupButton}
+            >
+              Создать событие
+            </Link>
+          ) : (
+            <></>
+          )}
           <div className="user-popup__divider"></div>
         </div>
 
