@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import UserNavigationPopup from "./UserNavigationPopup";
 import { CurrentUserContext } from "@/contexts/CurrentUserContext";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 const Header = ({isLoggedIn, onLogout}) => {
     const router = useRouter();

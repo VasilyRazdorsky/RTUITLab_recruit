@@ -52,7 +52,7 @@ export default function App({ Component, pageProps }) {
   function handleChangeUserInfo(firstName, email) {
     changeUserInfo(firstName, email)
       .then((res) => {
-        setCurrentUser(res);
+        setCurrentUser({ ...currentUser, firstName: firstName, email: email });
       })
       .catch((err) => {
         setIsInfoToolTipOpen(true);
