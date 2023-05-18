@@ -1,4 +1,5 @@
 const axios = require("axios").default;
+axios.defaults.withCredentials = true;
 
 const config = {
   baseUrl: "http://localhost:8088",
@@ -9,6 +10,27 @@ function getCurrentUser() {
     .get(`${config.baseUrl}/About`)
     .then((res) => res.data)
     .catch((err) => console.log(err));
+}
+
+function changeUserInfo(firstName, email) {
+  return axios
+    .put(
+      `${config.baseUrl}/Edit`,
+      {
+        firstName: firstName,
+        email: email,
+        lastName: "String",
+        birthDate: "2023-05-18T09:55:00.781Z",
+        patronymic: "String",
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      }
+    )
+    .then((res) => res.data);
 }
 
 function getAllEvents() {
@@ -58,6 +80,7 @@ export {
   getAllEvents,
   getEvent,
   getCurrentUser,
+  changeUserInfo,
   addLike,
   removeLike,
   createEvent,

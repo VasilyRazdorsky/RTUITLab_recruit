@@ -8,8 +8,8 @@
     margin-bottom: 100px;
     text-align: center;
     font-weight: 900;
-    font-size: 36px;
-    line-height: 38px;
+    font-size: 34px;
+    line-height: 36px;
 }
 
 .my-events__empty-text {
@@ -28,6 +28,12 @@
         padding: 40px;
     }
 
+    .my-events__title {
+        font-size: 32px;
+        line-height: 34px;
+        margin-bottom: 70px;
+    }
+
     .my-events__empty-text {
         max-width: 80%;
     }
@@ -36,6 +42,14 @@
 @media screen and (max-width: 540px) {
     .my-events__empty-text {
         font-size: 16px;
-    line-height: 18px;
+        line-height: 18px;
+    }
+
+    .my-events__title {
+        max-width: 80%;
+        margin: 0 auto;
+        margin-bottom: 50px;
+        font-size: 28px;
+        line-height: 30px;
     }
 }

@@ -64,17 +64,13 @@ export default function useFormValidation({
       }
       setIsFormValid(finalBool);
     } else {
-      if (
-        values.email &&
-        validateEmail(values.email) &&
-        target.checkValidity()
-      ) {
+      if (values.email && validateEmail(values.email)) {
         let finalBool = true;
         if (passwordInput && values.password.length < 3) {
           finalBool = false;
         }
 
-        if (nameInput && values.name.length < 2) {
+        if (nameInput && values.name.length < 3) {
           finalBool = false;
         }
         setIsFormValid(finalBool);

@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Layout from "@/components/Layout";
 import { CurrentUserContext } from "@/contexts/CurrentUserContext";
-import { getCurrentUser, createEvent } from "@/utils/api";
+import { getCurrentUser, createEvent, changeUserInfo } from "@/utils/api";
 import { login, logout, register } from "@/utils/auth";
 
 export default function App({ Component, pageProps }) {
@@ -29,7 +29,7 @@ export default function App({ Component, pageProps }) {
 
   function handleLogin(email, password) {
     login(email, password)
-      .then((res) => {
+      .then(() => {
         setIsLoggedIn(true);
         router.push("/events");
       })
@@ -47,6 +47,17 @@ export default function App({ Component, pageProps }) {
         setCurrentUser({});
       })
       .catch((err) => console.log(err));
+  }
+
+  function handleChangeUserInfo(firstName, email) {
+    changeUserInfo(firstName, email)
+      .then((res) => {
+        setCurrentUser(res);
+      })
+      .catch((err) => {
+        setIsInfoToolTipOpen(true);
+        console.log(err);
+      });
   }
 
   //Заполнение контекста после авторизации
@@ -96,6 +107,7 @@ export default function App({ Component, pageProps }) {
           isInfoToolTipOpen={isInfoToolTipOpen}
           onInfoToolTipClose={handleInfoToolTipClose}
           onCreateEvent={handleCreateEvent}
+          onChangeUserInfo={handleChangeUserInfo}
         />
       </Layout>
     </CurrentUserContext.Provider>
