@@ -14,6 +14,7 @@ import { login, logout, register } from "@/utils/auth";
 export default function App({ Component, pageProps }) {
   const router = useRouter();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
   const [isInfoToolTipOpen, setIsInfoToolTipOpen] = useState(false);
 
@@ -81,6 +82,7 @@ export default function App({ Component, pageProps }) {
     if (isLoggedIn) {
       getCurrentUser().then((res) => {
         setCurrentUser(res);
+        setIsAdmin(res.roles.includes("admin"));
       });
     }
   }, [isLoggedIn]);
@@ -92,6 +94,7 @@ export default function App({ Component, pageProps }) {
         if (res) {
           setCurrentUser(res);
           setIsLoggedIn(true);
+          setIsAdmin(res.roles.includes("admin"));
         }
       })
       .catch((err) => {
@@ -117,6 +120,7 @@ export default function App({ Component, pageProps }) {
         <Component
           {...pageProps}
           isLoggedIn={isLoggedIn}
+          isAdmin={isAdmin}
           onLogin={handleLogin}
           onLogout={handleLogout}
           onRegister={handleRegister}

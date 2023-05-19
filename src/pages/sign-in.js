@@ -49,7 +49,7 @@ export default function Login({
             id="password"
             className="login__input"
             required
-            minLength="4"
+            minLength="3"
             maxLength="40"
             onChange={handleInputChange}
             defaultValue=""

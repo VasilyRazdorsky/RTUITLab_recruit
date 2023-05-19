@@ -1,6 +1,5 @@
 import Auth from "@/components/isAuth";
 import Head from "next/head";
-import { useState } from "react";
 import useFormValidation from "@/hooks/useFormValidation";
 import InfoToolTip from "@/components/InfoToolTip";
 
@@ -39,7 +38,7 @@ export default function ChangePass({
               id="old_password"
               className="login__input"
               required
-              minLength="4"
+              minLength="3"
               maxLength="40"
               defaultValue=""
               onChange={handleInputChange}
@@ -54,7 +53,7 @@ export default function ChangePass({
               id="new_password"
               className="login__input"
               required
-              minLength="4"
+              minLength="3"
               maxLength="40"
               defaultValue=""
               onChange={handleInputChange}

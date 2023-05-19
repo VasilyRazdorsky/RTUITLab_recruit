@@ -70,14 +70,14 @@ export default function useFormValidation({
       if (values.old_password === values.new_password) {
         finalBool = false;
       }
-      if (values.old_password.length < 4 || values.new_password.length < 4) {
+      if (values.old_password.length < 3 || values.new_password.length < 3) {
         finalBool = false;
       }
       setIsFormValid(finalBool);
     } else {
       if (values.email && validateEmail(values.email)) {
         let finalBool = true;
-        if (passwordInput && values.password.length < 4) {
+        if (passwordInput && values.password.length < 3) {
           finalBool = false;
         }
 

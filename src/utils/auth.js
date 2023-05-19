@@ -47,7 +47,6 @@ function login(email, password) {
       }
     )
     .then((res) => {
-      console.log(res);
       return res.data;
     });
 }
