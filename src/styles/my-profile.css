@@ -1,5 +1,5 @@
 .my-profile {
-    padding: 150px 70px 200px 70px;
+    padding: 150px 70px 100px 70px;
 }
 
 .my-profile__title {
@@ -93,10 +93,41 @@
     opacity: .7;
 }
 
+.my-profile__link {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    color: #FFFAFA;
+    transition: all .3s ease-in;
+}
+
+.my-profile__link:hover {
+    opacity: .8;
+}
+
 @media screen and (max-width: 1000px) {
     .my-profile {
         padding: 40px;
     }
+
+    .my-profile__form {
+        width: 60%;
+    }
+
+    .my-profile__form-label {
+        font-size: 16px;
+        line-height: 18px;
+    }
+
+    .my-profile__input {
+        font-size: 18px;
+        line-height: 20px;
+    } 
 
     .my-profile__title {
         font-size: 32px;
@@ -108,8 +139,29 @@
     .my-profile {
         padding: 40px 15px;
     }
+
+    .my-profile__form {
+        width: 80%;
+    }
+
     .my-profile__title {
         font-size: 28px;
         line-height: 30px;
+    }
+
+    .my-profile__form-label {
+        font-size: 14px;
+        line-height: 16px;
+    }
+
+    .my-profile__input {
+        font-size: 16px;
+        line-height: 18px;
+    } 
+
+    .my-profile__link {
+        margin-top: 15px;
+        font-size: 12px;
+        line-height: 14px;
     }
 }

@@ -3,6 +3,8 @@ import { CurrentUserContext } from "@/contexts/CurrentUserContext";
 import { useContext, useEffect, useState } from "react";
 import useFormValidation from "@/hooks/useFormValidation";
 import InfoToolTip from "@/components/InfoToolTip";
+import Head from "next/head";
+import Link from "next/link";
 
 export default function MyProfile({
   isLoggedIn,
@@ -37,6 +39,9 @@ export default function MyProfile({
   return (
     <>
       <Auth isLoggedIn={isLoggedIn}>
+        <Head>
+          <title>{!isFormActive ? "Профиль" : "Редактирование"}</title>
+        </Head>
         <section className="my-profile">
           <h1 className="my-profile__title">
             Привет, {currentUser.firstName}! 👋
@@ -97,6 +102,9 @@ export default function MyProfile({
               </button>
             )}
           </form>
+          <Link href="/change-pass" className="my-profile__link">
+            Поменять пароль
+          </Link>
           <InfoToolTip
             isInfoToolTipOpen={isInfoToolTipOpen}
             onInfoToolTipClose={onInfoToolTipClose}
