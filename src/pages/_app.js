@@ -8,6 +8,8 @@ import {
   createEvent,
   changeUserInfo,
   changePassword,
+  sendEmailToSubscribe,
+  sendCodeToSubscribe,
 } from "@/utils/api";
 import { login, logout, register } from "@/utils/auth";
 
@@ -17,6 +19,8 @@ export default function App({ Component, pageProps }) {
   const [isAdmin, setIsAdmin] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
   const [isInfoToolTipOpen, setIsInfoToolTipOpen] = useState(false);
+  const [isEmailSelected, setIsEmailSelected] = useState(false);
+  const [isSubscribed, setIsSubscribed] = useState(false);
 
   function handleInfoToolTipClose() {
     setIsInfoToolTipOpen(false);
@@ -77,6 +81,28 @@ export default function App({ Component, pageProps }) {
       });
   }
 
+  function handleEmailSelection(email) {
+    sendEmailToSubscribe(email)
+      .then(() => {
+        setIsEmailSelected(true);
+      })
+      .catch((err) => {
+        setIsInfoToolTipOpen(true);
+        console.log(err);
+      });
+  }
+
+  function handleConfirmSubscription(email, code) {
+    sendCodeToSubscribe(email, code)
+      .then(() => {
+        setIsSubscribed(true);
+      })
+      .catch((err) => {
+        setIsInfoToolTipOpen(true);
+        console.log(err);
+      });
+  }
+
   //Заполнение контекста после авторизации
   useEffect(() => {
     if (isLoggedIn) {
@@ -129,6 +155,10 @@ export default function App({ Component, pageProps }) {
           onCreateEvent={handleCreateEvent}
           onChangeUserInfo={handleChangeUserInfo}
           onPasswordChange={onPasswordChange}
+          isEmailSelected={isEmailSelected}
+          onEmailSelection={handleEmailSelection}
+          onCodeSend={handleConfirmSubscription}
+          isSubscribed={isSubscribed}
         />
       </Layout>
     </CurrentUserContext.Provider>

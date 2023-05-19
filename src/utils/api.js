@@ -92,6 +92,39 @@ function createEvent(values) {
     .then((res) => res.data);
 }
 
+function sendEmailToSubscribe(email) {
+  return axios
+    .post(
+      `${config.baseUrl}/SubscribeToNewsletter`,
+      {
+        email: email,
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      }
+    )
+    .then((res) => res.data);
+}
+
+function sendCodeToSubscribe(email, code) {
+  return axios.post(
+    `${config.baseUrl}/FinalSubToNewsletter`,
+    {
+      email: email,
+      code: code,
+    },
+    {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    }
+  );
+}
+
 export {
   getAllEvents,
   getEvent,
@@ -101,4 +134,6 @@ export {
   addLike,
   removeLike,
   createEvent,
+  sendEmailToSubscribe,
+  sendCodeToSubscribe,
 };

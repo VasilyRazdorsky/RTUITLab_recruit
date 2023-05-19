@@ -143,7 +143,7 @@ export default function CreateEvent({
                   !isFormValid && "login__submit-button_disabled"
                 }`}
               >
-                Войти
+                Создать
               </button>
             </form>
             <InfoToolTip

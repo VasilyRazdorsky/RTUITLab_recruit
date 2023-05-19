@@ -5,6 +5,8 @@ export default function useFormValidation({
   nameInput,
   createEventInput,
   changePassword,
+  isSubscription,
+  isEmailSelected,
 }) {
   const [values, setValues] = useState({
     email: "",
@@ -18,6 +20,7 @@ export default function useFormValidation({
     startDate: "",
     coordinates: [55.75399399999374, 37.62209300000001],
     posterUrl: "",
+    code: "",
   });
   const [errors, setErrors] = useState({});
   const [isFormValid, setIsFormValid] = useState(false);
@@ -82,6 +85,10 @@ export default function useFormValidation({
         }
 
         if (nameInput && values.name.length < 3) {
+          finalBool = false;
+        }
+
+        if (isSubscription && isEmailSelected && values.code.length < 1) {
           finalBool = false;
         }
         setIsFormValid(finalBool);

@@ -5,7 +5,14 @@ import MainInfo from "@/components/MainInfo";
 import HowToUse from "@/components/HowToUse";
 import Subscription from "@/components/Subscription";
 
-export default function Home() {
+export default function Home({
+  isEmailSelected,
+  onEmailSelection,
+  onCodeSend,
+  isSubscribed,
+  isInfoToolTipOpen,
+  onInfoToolTipClose,
+}) {
   return (
     <>
       <Head>
@@ -19,7 +26,14 @@ export default function Home() {
         <TopEvents />
         <MainInfo />
         <HowToUse />
-        <Subscription />
+        <Subscription
+          isEmailSelected={isEmailSelected}
+          onEmailSelection={onEmailSelection}
+          onCodeSend={onCodeSend}
+          isSubscribed={isSubscribed}
+          isInfoToolTipOpen={isInfoToolTipOpen}
+          onInfoToolTipClose={onInfoToolTipClose}
+        />
       </main>
     </>
   );

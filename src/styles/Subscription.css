@@ -50,6 +50,7 @@
 
 .subscription__form-label {
     display: block;
+    margin-top: 10px;
     font-weight: 400;
     font-size: 12px;
     line-height: 14px;

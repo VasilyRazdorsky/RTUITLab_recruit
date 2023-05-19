@@ -1,16 +1,28 @@
 import useFormValidation from "@/hooks/useFormValidation";
-import { useState } from "react";
+import InfoToolTip from "./InfoToolTip";
 
-export default function Subscription() {
-  const [isSubscribed, setIsSubscribed] = useState(false);
-  const { handleInputChange, isFormValid } = useFormValidation({
+export default function Subscription({
+  isEmailSelected,
+  onEmailSelection,
+  onCodeSend,
+  isSubscribed,
+  isInfoToolTipOpen,
+  onInfoToolTipClose,
+}) {
+  const { handleInputChange, isFormValid, values } = useFormValidation({
     passwordInput: false,
     nameInput: false,
+    isSubscription: true,
+    isEmailSelected: isEmailSelected,
   });
+
+  function handleEmailSelection() {
+    onEmailSelection(values.email);
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
-    setIsSubscribed(true);
+    onCodeSend(values.email, values.code);
   }
 
   return (
@@ -41,20 +53,53 @@ export default function Subscription() {
               />
             </div>
 
-            <button
-              disabled={!isFormValid}
-              type="submit"
-              className={`subscription__submit-button ${
-                !isFormValid && "subscription__submit-button_disabled"
-              }`}
-            >
-              Подписаться
-            </button>
+            {isEmailSelected && (
+              <div>
+                <label htmlFor="code" className="subscription__form-label">
+                  Введите код из сообщения(на вашей почте):
+                </label>
+                <input
+                  type="text"
+                  name="code"
+                  id="code"
+                  className="subscription__input"
+                  onChange={handleInputChange}
+                />
+              </div>
+            )}
+
+            {isEmailSelected ? (
+              <button
+                disabled={!isFormValid}
+                type="submit"
+                className={`subscription__submit-button ${
+                  !isFormValid && "subscription__submit-button_disabled"
+                }`}
+              >
+                Отправить
+              </button>
+            ) : (
+              <button
+                disabled={!isFormValid}
+                type="button"
+                className={`subscription__submit-button ${
+                  !isFormValid && "subscription__submit-button_disabled"
+                }`}
+                onClick={handleEmailSelection}
+              >
+                Подписаться
+              </button>
+            )}
           </form>
         </>
       )}
+
       <div className="subscription__divider"></div>
       <div className="subscription__moto">🛵</div>
+      <InfoToolTip
+        isInfoToolTipOpen={isInfoToolTipOpen}
+        onInfoToolTipClose={onInfoToolTipClose}
+      />
     </section>
   );
 }
