@@ -23,7 +23,7 @@ export default function Register({
         <title>Регистрация</title>
       </Head>
       <section className="login">
-        <h1 className="login__title">Добро пожаловать!</h1>
+        <h2 className="login__title">Добро пожаловать!</h2>
 
         <form className="login__form" onSubmit={handleSubmit}>
           <label htmlFor="name" className="login__form-label">

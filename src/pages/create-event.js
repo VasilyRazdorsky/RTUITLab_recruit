@@ -39,7 +39,7 @@ export default function CreateEvent({
       </Head>
       <Auth isLoggedIn={isLoggedIn}>
         <section className="login">
-          <h1 className="login__title">Создать событие 🎨</h1>
+          <h2 className="login__title">Создать событие 🎨</h2>
 
           <form className="login__form" onSubmit={handleSubmit}>
             <label htmlFor="title" className="login__form-label">

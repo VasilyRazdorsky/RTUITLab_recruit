@@ -25,7 +25,7 @@ export default function Login({
         <title>Войти</title>
       </Head>
       <section className="login">
-        <h1 className="login__title">Рады видеть!</h1>
+        <h2 className="login__title">Рады видеть!</h2>
 
         <form className="login__form" onSubmit={handleSubmitClick}>
           <label htmlFor="email" className="login__form-label">

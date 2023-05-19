@@ -4,10 +4,13 @@ export default function useFormValidation({
   passwordInput,
   nameInput,
   createEventInput,
+  changePassword,
 }) {
   const [values, setValues] = useState({
     email: "",
     password: "",
+    old_password: "",
+    new_password: "",
     name: "",
     title: "",
     description: "",
@@ -30,7 +33,6 @@ export default function useFormValidation({
       [e.target.name]: e.validationMessage,
     });
     setTarget(e.target);
-    console.log(values, isFormValid);
   };
 
   const validateEmail = (email) => {
@@ -63,10 +65,19 @@ export default function useFormValidation({
         finalBool = false;
       }
       setIsFormValid(finalBool);
+    } else if (changePassword) {
+      let finalBool = true;
+      if (values.old_password === values.new_password) {
+        finalBool = false;
+      }
+      if (values.old_password.length < 4 || values.new_password.length < 4) {
+        finalBool = false;
+      }
+      setIsFormValid(finalBool);
     } else {
       if (values.email && validateEmail(values.email)) {
         let finalBool = true;
-        if (passwordInput && values.password.length < 3) {
+        if (passwordInput && values.password.length < 4) {
           finalBool = false;
         }
 

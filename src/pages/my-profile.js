@@ -43,9 +43,9 @@ export default function MyProfile({
           <title>{!isFormActive ? "Профиль" : "Редактирование"}</title>
         </Head>
         <section className="my-profile">
-          <h1 className="my-profile__title">
+          <h2 className="my-profile__title">
             Привет, {currentUser.firstName}! 👋
-          </h1>
+          </h2>
 
           <form className="my-profile__form" onSubmit={handleSubmitClick}>
             <div className="my-profile__input-block">

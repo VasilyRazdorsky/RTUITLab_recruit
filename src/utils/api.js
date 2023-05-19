@@ -33,6 +33,22 @@ function changeUserInfo(firstName, email) {
     .then((res) => res.data);
 }
 
+function changePassword(currentPassword, newPassword) {
+  return axios.put(
+    `${config.baseUrl}/ChangePassword`,
+    {
+      currentPassword: currentPassword,
+      newPassword: newPassword,
+    },
+    {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    }
+  );
+}
+
 function getAllEvents() {
   return axios.get(`${config.baseUrl}/Get/20/1/true`).then((res) => res.data);
 }
@@ -81,6 +97,7 @@ export {
   getEvent,
   getCurrentUser,
   changeUserInfo,
+  changePassword,
   addLike,
   removeLike,
   createEvent,

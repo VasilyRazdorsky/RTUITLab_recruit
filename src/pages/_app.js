@@ -3,7 +3,12 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Layout from "@/components/Layout";
 import { CurrentUserContext } from "@/contexts/CurrentUserContext";
-import { getCurrentUser, createEvent, changeUserInfo } from "@/utils/api";
+import {
+  getCurrentUser,
+  createEvent,
+  changeUserInfo,
+  changePassword,
+} from "@/utils/api";
 import { login, logout, register } from "@/utils/auth";
 
 export default function App({ Component, pageProps }) {
@@ -60,6 +65,17 @@ export default function App({ Component, pageProps }) {
       });
   }
 
+  function onPasswordChange(currentPassword, newPassword) {
+    changePassword(currentPassword, newPassword)
+      .then(() => {
+        router.push("/my-profile");
+      })
+      .catch((err) => {
+        setIsInfoToolTipOpen(true);
+        console.log(err);
+      });
+  }
+
   //Заполнение контекста после авторизации
   useEffect(() => {
     if (isLoggedIn) {
@@ -108,6 +124,7 @@ export default function App({ Component, pageProps }) {
           onInfoToolTipClose={handleInfoToolTipClose}
           onCreateEvent={handleCreateEvent}
           onChangeUserInfo={handleChangeUserInfo}
+          onPasswordChange={onPasswordChange}
         />
       </Layout>
     </CurrentUserContext.Provider>
