@@ -70,6 +70,7 @@ export default function Event({
             src={posterUrl}
             width={375}
             height={375}
+            unoptimized={true}
             className="event__poster-img"
           />
         </div>

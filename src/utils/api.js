@@ -53,6 +53,10 @@ function getAllEvents() {
   return axios.get(`${config.baseUrl}/Get/20/1/true`).then((res) => res.data);
 }
 
+function getTopEvents() {
+  return axios.get(`${config.baseUrl}/GetTop/3`).then((res) => res.data);
+}
+
 function getEvent(eventId) {
   return axios.get(`${config.baseUrl}/Get/${eventId}`).then((res) => res.data);
 }
@@ -127,6 +131,7 @@ function sendCodeToSubscribe(email, code) {
 
 export {
   getAllEvents,
+  getTopEvents,
   getEvent,
   getCurrentUser,
   changeUserInfo,

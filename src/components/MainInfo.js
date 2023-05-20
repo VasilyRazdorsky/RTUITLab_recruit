@@ -1,5 +1,3 @@
-import { Link } from "react-scroll";
-
 export default function MainInfo() {
   return (
     <section className="main-info">

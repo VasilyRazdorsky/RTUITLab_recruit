@@ -6,25 +6,28 @@ import { scroller } from "react-scroll";
 import Auth from "@/components/isAuth";
 import { getAllEvents } from "@/utils/api";
 import Head from "next/head";
+import { getTopEvents } from "@/utils/api";
 
 export const getServerSideProps = async () => {
   const res = await getAllEvents();
+  const topEvents = await getTopEvents();
 
   return {
     props: {
       eventsList: res,
+      topEventsList: topEvents,
     },
   };
 };
 
-export default function Events({ isLoggedIn, eventsList }) {
+export default function Events({ isLoggedIn, eventsList, topEventsList }) {
   return (
     <>
       <Head>
         <title>События</title>
       </Head>
       <Auth isLoggedIn={isLoggedIn}>
-        <TopEvents />
+        <TopEvents topEventsList={topEventsList} />
         <section className="events">
           <h2 className="events__map-title">Карта событий 🗺️</h2>
           <MyMap

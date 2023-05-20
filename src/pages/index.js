@@ -4,6 +4,17 @@ import TopEvents from "@/components/TopEvents";
 import MainInfo from "@/components/MainInfo";
 import HowToUse from "@/components/HowToUse";
 import Subscription from "@/components/Subscription";
+import { getTopEvents } from "@/utils/api";
+
+export const getServerSideProps = async () => {
+  const res = await getTopEvents();
+
+  return {
+    props: {
+      topEventsList: res,
+    },
+  };
+};
 
 export default function Home({
   isEmailSelected,
@@ -12,6 +23,7 @@ export default function Home({
   isSubscribed,
   isInfoToolTipOpen,
   onInfoToolTipClose,
+  topEventsList,
 }) {
   return (
     <>
@@ -23,7 +35,7 @@ export default function Home({
       </Head>
       <main className={``}>
         <Poster />
-        <TopEvents />
+        <TopEvents topEventsList={topEventsList} />
         <MainInfo />
         <HowToUse />
         <Subscription
