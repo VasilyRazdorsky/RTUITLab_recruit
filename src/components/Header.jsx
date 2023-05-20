@@ -10,7 +10,7 @@ const Header = ({isLoggedIn, onLogout}) => {
     
     return (
         <header className="header" id="up">
-            <p className="header__logo">МосСобытия</p>
+            <Link href="/" className="header__logo">МосСобытия</Link>
 
             <nav className="header__page-navigation">
                 <Link href="/" className={`header__link ${router.pathname === "/" ? "header__link_active" : ""}`}>Главная</Link>

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { VscHeart, VscHeartFilled } from "react-icons/vsc";
 import { useContext, useEffect, useState } from "react";
 import { Element } from "react-scroll";
@@ -98,21 +99,3 @@ export default function Event({
     </Element>
   );
 }
-
-/*<div className={`test ${isMoreOpened && "test_active"}`}>
-            <p className="element">123</p>
-            <p className="element">321</p>
-            <p className="element">23</p>
-            <p className="element">321</p>
-            <p className="element">123</p>
-            <p className="element">321</p>
-            <button className="element" onClick={handleMoreCloseClick}>
-              Close
-            </button>
-          </div>
-          
-          
-          
-          <button className onClick={handleMoreClick}>
-            More...
-          </button>*/
