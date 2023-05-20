@@ -13,6 +13,11 @@
     text-decoration: none;
     color: #FFFAFA;
     cursor: pointer;
+    transition: transform .3s ease-in;
+}
+
+.header__logo:hover {
+    transform: scale(1.02);
 }
 
 .header__page-navigation {

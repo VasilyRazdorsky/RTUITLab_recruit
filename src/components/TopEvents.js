@@ -1,7 +1,5 @@
 import Carousel from "./Carousel";
 import Image from "next/image";
-import { getTopEvents } from "@/utils/api";
-import { useState, useEffect } from "react";
 
 export default function TopEvents({ topEventsList }) {
   return (
