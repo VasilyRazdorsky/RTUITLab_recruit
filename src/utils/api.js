@@ -52,7 +52,16 @@ function changePassword(currentPassword, newPassword) {
 function getAllEvents() {
   return axios
     .get(`${config.baseUrl}/GetEvents?count=20&page=1&sortByDate=true`)
-    .then((res) => res.data);
+    .then((res) => res.data)
+    .catch((err) => [{
+      id: 1,
+      title: "Название",
+      description: "Описание",
+      address: "Адрес",
+      startDate: "08.12.2023",
+      posterUrl: "Постер ссылка",
+      coordinates: [55.3214, 44.41324],
+    }]);
 }
 
 function getTopEvents() {
@@ -64,7 +73,18 @@ function getTopEvents() {
 function getEvent(eventId) {
   return axios
     .get(`${config.baseUrl}/GetEvent?eventId=${eventId}`)
-    .then((res) => res.data);
+    .then((res) => res.data)
+    .catch(() => {
+      return [{
+        id: 1,
+        title: "Название",
+        description: "Описание",
+        address: "Адрес",
+        startDate: "08.12.2023",
+        posterUrl: "Постер ссылка",
+        coordinates: [55.3214, 44.41324],
+      }]
+    });
 }
 
 function addLike(eventId) {
