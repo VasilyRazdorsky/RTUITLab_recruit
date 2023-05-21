@@ -54,7 +54,7 @@ function getAllEvents() {
     .get(`${config.baseUrl}/GetEvents?count=20&page=1&sortByDate=true`)
     .then((res) => res.data)
     .catch((err) => [{
-      id: 1,
+      id: 1346457567345,
       title: "Название",
       description: "Описание",
       address: "Адрес",
@@ -76,7 +76,7 @@ function getEvent(eventId) {
     .then((res) => res.data)
     .catch(() => {
       return [{
-        id: 1,
+        id: 1123321412341,
         title: "Название",
         description: "Описание",
         address: "Адрес",
