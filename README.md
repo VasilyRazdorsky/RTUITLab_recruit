@@ -59,6 +59,14 @@ cd UrbanFiesta
 docker compose up --build
 ```
 
+3. Открыть Docker docker-desktop
+
+4. Запустить контейнер
+
+```
+docker compose up --build
+```
+
 3. Клонировать репозиторий(фронтенд)
 
 ```
