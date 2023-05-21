@@ -7,7 +7,7 @@ const config = {
 
 function getCurrentUser() {
   return axios
-    .get(`${config.baseUrl}/About`)
+    .get(`${config.baseUrl}/AboutAccount`)
     .then((res) => res.data)
     .catch((err) => console.log(err));
 }
@@ -15,7 +15,7 @@ function getCurrentUser() {
 function changeUserInfo(firstName, email) {
   return axios
     .put(
-      `${config.baseUrl}/Edit`,
+      `${config.baseUrl}/EditAccount`,
       {
         firstName: firstName,
         email: email,
@@ -50,26 +50,32 @@ function changePassword(currentPassword, newPassword) {
 }
 
 function getAllEvents() {
-  return axios.get(`${config.baseUrl}/Get/20/1/true`).then((res) => res.data);
+  return axios
+    .get(`${config.baseUrl}/GetEvents?count=20&page=1&sortByDate=true`)
+    .then((res) => res.data);
 }
 
 function getTopEvents() {
-  return axios.get(`${config.baseUrl}/GetTop/3`).then((res) => res.data);
+  return axios
+    .get(`${config.baseUrl}/GetTopEvents?count=3`)
+    .then((res) => res.data);
 }
 
 function getEvent(eventId) {
-  return axios.get(`${config.baseUrl}/Get/${eventId}`).then((res) => res.data);
+  return axios
+    .get(`${config.baseUrl}/GetEvent?eventId=${eventId}`)
+    .then((res) => res.data);
 }
 
 function addLike(eventId) {
   return axios
-    .post(`${config.baseUrl}/Like/${eventId}`)
+    .post(`${config.baseUrl}/LikeEvent?eventId=${eventId}`)
     .then((res) => res.data);
 }
 
 function removeLike(eventId) {
   return axios
-    .post(`${config.baseUrl}/RemoveLike/${eventId}`)
+    .post(`${config.baseUrl}/RemoveLikeFromEvent?eventId=${eventId}`)
     .then((res) => res.data);
 }
 
@@ -96,12 +102,19 @@ function createEvent(values) {
     .then((res) => res.data);
 }
 
-function sendEmailToSubscribe(email) {
+function editEvent(values) {
   return axios
-    .post(
-      `${config.baseUrl}/SubscribeToNewsletter`,
+    .put(
+      `${config.baseUrl}/UpdateEvent`,
       {
-        email: email,
+        title: values.title,
+        description: values.description,
+        address: values.address,
+        startDate: values.startDate,
+        endDate: values.startDate,
+        coordinates: values.coordinates,
+        posterUrl: values.posterUrl,
+        id: values.id,
       },
       {
         headers: {
@@ -113,19 +126,15 @@ function sendEmailToSubscribe(email) {
     .then((res) => res.data);
 }
 
+function sendEmailToSubscribe(email) {
+  return axios
+    .post(`${config.baseUrl}/SubscribeToNewsletter?email=${email}`)
+    .then((res) => res.data);
+}
+
 function sendCodeToSubscribe(email, code) {
   return axios.post(
-    `${config.baseUrl}/FinalSubToNewsletter`,
-    {
-      email: email,
-      code: code,
-    },
-    {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    }
+    `${config.baseUrl}/FinalSubToNewsletter?email=${email}&code=${code}`
   );
 }
 
@@ -139,6 +148,7 @@ export {
   addLike,
   removeLike,
   createEvent,
+  editEvent,
   sendEmailToSubscribe,
   sendCodeToSubscribe,
 };

@@ -7,21 +7,27 @@ export default function useFormValidation({
   changePassword,
   isSubscription,
   isEmailSelected,
+  changeEvent,
+  changeEventConfig,
 }) {
-  const [values, setValues] = useState({
-    email: "",
-    password: "",
-    old_password: "",
-    new_password: "",
-    name: "",
-    title: "",
-    description: "",
-    address: "",
-    startDate: "",
-    coordinates: [55.75399399999374, 37.62209300000001],
-    posterUrl: "",
-    code: "",
-  });
+  const [values, setValues] = useState(
+    changeEvent
+      ? changeEventConfig
+      : {
+          email: "",
+          password: "",
+          old_password: "",
+          new_password: "",
+          name: "",
+          title: "",
+          description: "",
+          address: "",
+          startDate: "",
+          coordinates: [55.75399399999374, 37.62209300000001],
+          posterUrl: "",
+          code: "",
+        }
+  );
   const [errors, setErrors] = useState({});
   const [isFormValid, setIsFormValid] = useState(false);
   const [target, setTarget] = useState("");

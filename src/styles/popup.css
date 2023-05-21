@@ -31,6 +31,14 @@
     border-radius: 10px;
 }
 
+.popup__container_place_user-liked {
+    border: 2px solid #2E2A29;
+    background-color: #0A0A0A;
+    padding: 30px;
+    height: 70vh;
+    text-align: start;
+}
+
 .popup__close-button {
     padding: 0;
     width: 32px;
@@ -64,6 +72,27 @@
     margin-top: 32px;
 }
 
+.popup__header_place_user-liked {
+    color: #FFFAFA;
+    margin-top: 0;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.popup__names-container {
+    box-sizing: border-box;
+    max-height: 85%;
+    overflow: scroll;
+}
+
+.popup__name {
+    margin: 0;
+    margin-bottom: 10px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 22px;
+}
+
 @media screen and (max-width: 568px) {
     .popup {
         padding: 0 19px;
@@ -88,5 +117,10 @@
     .popup__header {
         font-size: 18px;
         line-height: 22px;
+    }
+
+    .popup__name {
+        font-size: 14px;
+        line-height: 16px;
     }
 }

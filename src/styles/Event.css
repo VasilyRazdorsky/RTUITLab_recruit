@@ -79,9 +79,19 @@
 
 .event__likes-count {
     margin: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
     font-weight: 400;
     font-size: 15px;
     line-height: 17px;
+    color: #FFFAFA;
+    cursor: pointer;
+    transition: opacity .3s ease-in;
+}
+
+.event__likes-count:hover {
+    opacity: .8;
 }
 
 .event__like-button {
@@ -139,6 +149,22 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 18px;
+}
+
+.event__edit-link {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    color: #FFFAFA;
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    transition: opacity .3s ease-in;
+}
+
+.event__edit-link:hover {
+    opacity: .8;
 }
 
 @media screen and (max-width: 1140px) {

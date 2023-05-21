@@ -23,6 +23,15 @@
     margin-top: 50px;
 }
 
+.events__empty-text {
+    margin: 0;
+    margin-top: 20px;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 26px;
+    text-align: center;
+}
+
 @media screen and (max-width: 1000px) {
     .events {
         padding: 0 30px 70px 30px;
@@ -58,5 +67,11 @@
         margin-top: 50px;
         font-size: 28px;
         line-height: 30px;
+    }
+
+    .events__empty-text {
+        margin-top: 10px;
+        font-size: 18px;
+        line-height: 20px;
     }
 }

@@ -17,6 +17,7 @@ export const getServerSideProps = async () => {
 };
 
 export default function Home({
+  isLoggedIn,
   isEmailSelected,
   onEmailSelection,
   onCodeSend,
@@ -39,6 +40,7 @@ export default function Home({
         <MainInfo />
         <HowToUse />
         <Subscription
+          isLoggedIn={isLoggedIn}
           isEmailSelected={isEmailSelected}
           onEmailSelection={onEmailSelection}
           onCodeSend={onCodeSend}

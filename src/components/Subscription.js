@@ -1,7 +1,9 @@
 import useFormValidation from "@/hooks/useFormValidation";
 import InfoToolTip from "./InfoToolTip";
+import { useRouter } from "next/router";
 
 export default function Subscription({
+  isLoggedIn,
   isEmailSelected,
   onEmailSelection,
   onCodeSend,
@@ -16,8 +18,14 @@ export default function Subscription({
     isEmailSelected: isEmailSelected,
   });
 
+  const router = useRouter();
+
   function handleEmailSelection() {
-    onEmailSelection(values.email);
+    if (isLoggedIn) {
+      onEmailSelection(values.email);
+    } else {
+      router.push("/sign-in");
+    }
   }
 
   function handleSubmit(e) {

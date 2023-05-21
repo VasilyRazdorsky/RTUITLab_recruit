@@ -41,7 +41,7 @@ export default function Login({
           />
 
           <label htmlFor="password" className="login__form-label">
-            Пароль:
+            Пароль(минимум 1 цифра):
           </label>
           <input
             type="password"

@@ -1,6 +1,3 @@
-import { cookies } from "next/dist/client/components/headers";
-import { getCookieParser } from "next/dist/server/api-utils";
-
 const axios = require("axios").default;
 axios.defaults.withCredentials = true;
 

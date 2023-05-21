@@ -10,6 +10,7 @@ import {
   changePassword,
   sendEmailToSubscribe,
   sendCodeToSubscribe,
+  editEvent,
 } from "@/utils/api";
 import { login, logout, register } from "@/utils/auth";
 
@@ -140,6 +141,18 @@ export default function App({ Component, pageProps }) {
       });
   }
 
+  function handleEditEvent(values) {
+    editEvent(values)
+      .then((res) => {
+        router.push("/events");
+        console.log(res);
+      })
+      .catch((err) => {
+        setIsInfoToolTipOpen(true);
+        console.log(err);
+      });
+  }
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <Layout isLoggedIn={isLoggedIn} onLogout={handleLogout}>
@@ -159,6 +172,7 @@ export default function App({ Component, pageProps }) {
           onEmailSelection={handleEmailSelection}
           onCodeSend={handleConfirmSubscription}
           isSubscribed={isSubscribed}
+          onEditEvent={handleEditEvent}
         />
       </Layout>
     </CurrentUserContext.Provider>

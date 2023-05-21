@@ -32,7 +32,7 @@ export default function Events({ isLoggedIn, eventsList, topEventsList }) {
           <h2 className="events__map-title">Карта событий 🗺️</h2>
           <MyMap
             coordinates={[55.75399399999374, 37.62209300000001]}
-            zoom={11}
+            zoom={10}
             className="map_place_events"
             placemarks={eventsList.map((event) => {
               if (event.status === "NotStarted") {
@@ -55,26 +55,29 @@ export default function Events({ isLoggedIn, eventsList, topEventsList }) {
             })}
           />
           <h2 className="events__title">Новые события в Москве 🌱</h2>
-
-          <div className="events__container">
-            {eventsList.map((event) => {
-              if (event.status === "NotStarted") {
-                return (
-                  <Event
-                    key={event.id}
-                    id={event.id}
-                    title={event.title}
-                    date={event.startDate.slice(0, 10)}
-                    posterUrl={event.posterUrl}
-                    description={event.description}
-                    adress={event.address}
-                    elementName={event.id.toString()}
-                    onDislike={() => {}}
-                  />
-                );
-              }
-            })}
-          </div>
+          {eventsList.length === 0 ? (
+            <p className="events__empty-text">Скоро!</p>
+          ) : (
+            <div className="events__container">
+              {eventsList.map((event) => {
+                if (event.status === "NotStarted") {
+                  return (
+                    <Event
+                      key={event.id}
+                      id={event.id}
+                      title={event.title}
+                      date={event.startDate.slice(0, 10)}
+                      posterUrl={event.posterUrl}
+                      description={event.description}
+                      adress={event.address}
+                      elementName={event.id.toString()}
+                      onDislike={() => {}}
+                    />
+                  );
+                }
+              })}
+            </div>
+          )}
         </section>
       </Auth>
     </>
