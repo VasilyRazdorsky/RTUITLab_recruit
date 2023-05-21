@@ -2,7 +2,7 @@ const axios = require("axios").default;
 axios.defaults.withCredentials = true;
 
 const config = {
-  baseUrl: "http://localhost:80",
+  baseUrl: "http://localhost:8088",
 };
 
 function getCurrentUser() {
