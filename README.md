@@ -50,16 +50,15 @@
 
 ## 🚀 Запуск
 
-1. Скачать и установить [Docker](https://www.docker.com/products/docker-desktop/) и [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+1. Скачать и установить [Docker](https://www.docker.com/products/docker-desktop/), [Node JS](https://nodejs.org/en/download/) и [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 2. Клонировать репозиторий(бэкенд)
 
 ```
 git clone https://github.com/alimskeetit/UrbanFiesta.git
 cd UrbanFiesta
-docker compose up --build
 ```
 
-3. Открыть Docker docker-desktop
+3. Открыть Docker Desktop
 
 4. Запустить контейнер
 
@@ -67,20 +66,20 @@ docker compose up --build
 docker compose up --build
 ```
 
-3. Клонировать репозиторий(фронтенд)
+5. Клонировать репозиторий(фронтенд)
 
 ```
 git clone https://github.com/VasilyRazdorsky/RTUITLab_recruit.git
 cd RTUITLab_recruit
 ```
 
-4. Установить зависимости
+6. Установить зависимости
 
 ```
 npm i
 ```
 
-4. Запустить сайт
+7. Запустить сайт
 
 ```
 npm run dev
