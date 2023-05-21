@@ -2,7 +2,7 @@ const axios = require("axios").default;
 axios.defaults.withCredentials = true;
 
 const config = {
-  baseUrl: "http://localhost:8088",
+  baseUrl: "http://localhost:80",
 };
 
 function register(firstName, email, password) {
